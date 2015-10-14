@@ -1,15 +1,15 @@
 'use strict';
 
 
-function JGridMovies(dataService) {
+function GridDetailsMovie(dataService) {
 
         var directive = {
 
-                templateUrl: '/components/kendogrid/directives/jgrid-movies.html',
+                templateUrl: '/components/kendogrid/directives/grid-details-movie.html',
                 restrict: 'E',
                 replace: false,
                 scope: {
-                        title: '='
+                        idMovie: '='
                 },
                 link: link
         };
@@ -18,42 +18,40 @@ function JGridMovies(dataService) {
          */
         function link($scope, element, attrs) {
 
-                console.log("scope isolated :" + $scope.title)
-            
-            
-                        
-                var gridMoviesOptions = {
+                console.log("id movie :" + $scope.idMovie);
+
+                $scope.gridDetailsMovieOptions = {
                         dataSource: new kendo.data.DataSource({
                                 transport: {
                                         read: function (options) {
-                                                return dataService.getMovies().success(function (results) {
+                                                return dataService.getDetailsMovie($scope.idMovie).success(function (results) {
                                                         options.success(results.data);
                                                 });
                                         }
                                 },
                                 schema: {
-                                        data: "movies", // records are returned in the "data" field of the response
-                                        total: "movie_count", // total number of records is in the "total" field of the response
-                        
+                                        data: "comments", // records are returned in the "data" field of the response
+                                        total: "comment_count", // total number of records is in the "total" field of the response
+                                
                                 },
-                                pageSize: 20,
                                 serverPaging: true,
                                 serverSorting: true
                         }),
                         sortable: true,
                         pageable: true,
                         columns: [
-                                { field: "id", title: "id" },
-                                { field: "title", title: "title" }
-                        ]
+                                { field: "username", title: "User" },
+                                { field: "comment_text", title: "Commentaire" },
+                                { field: "date_added", title: "Date" }
 
+                        ]
                 };
-                
-                
+
+
         }
 
         return directive;
 }
 
-module.exports = JGridMovies;
+module.exports = GridDetailsMovie;
 

@@ -19,9 +19,7 @@ function GridMovies(dataService) {
         function link($scope, element, attrs) {
 
                 console.log("scope isolated :" + $scope.title)
-            
-            
-                        
+
                 $scope.gridMoviesOptions = {
                         dataSource: new kendo.data.DataSource({
                                 transport: {
@@ -34,7 +32,7 @@ function GridMovies(dataService) {
                                 schema: {
                                         data: "movies", // records are returned in the "data" field of the response
                                         total: "movie_count", // total number of records is in the "total" field of the response
-                        
+                                
                                 },
                                 serverPaging: false,
                                 serverSorting: false
@@ -45,9 +43,9 @@ function GridMovies(dataService) {
                                 { field: "id", title: "id" },
                                 { field: "title", title: "title" }
                         ]
-
                 };
-                
+
+
         }
 
         return directive;

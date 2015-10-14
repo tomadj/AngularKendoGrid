@@ -1,8 +1,11 @@
 'use strict';
 
 // GridAngularCtrl class
-function GridAngularCtrl () {
-	this.title = 'Kengo grid Angular';
+function GridAngularCtrl(dataService) {
+
+        var self = this;
+        self.title = 'Kengo grid Angular';
+
 }
 
 module.exports = GridAngularCtrl;

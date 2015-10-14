@@ -3,10 +3,8 @@
 <h3>{{title}}</h3>
 
 
-<!--<div id="gridMovies">
-
-</div>-->
-
 <kendo-grid k-options="gridMoviesOptions">
-	
+	<div k-detail-template>
+		<grid-details-movie id-movie="dataItem.id"></grid-details-movie>
+	</div>
 </kendo-grid>

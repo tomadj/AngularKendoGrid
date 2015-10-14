@@ -14,7 +14,7 @@ DataService.prototype.getMovies = function(){
 };
 
 DataService.prototype.getDetailsMovie = function(movie_id){
-	var url = 'https://yts.to/api/v2/movie_details.json?movie_id='+movie_id;	
+	var url = 'https://yts.to/api/v2/movie_comments.json?movie_id='+movie_id;	
 	return _$http.get(url, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
 };
 
